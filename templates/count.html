@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>WORD COUNT</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+      body{
+        margin:50px;
+      }
+      small{
+        font-size:25px;
+
+      }
+      .display-4{
+        color: #4B22AF
+      }
+      .lead{
+        text-align: center
+      }
+      mark{
+        color: #6403C9
+      }
+
+      .text-monospace{
+        padding:20px;
+        line-height: 2;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="display-4"><b>THERE ARE {{count}} WORDS IN THE TEXT</b></h1>
+    <small class="text muted">YOUR TEXT IS: </small>
+    <br>
+    <br>
+    <p class="lead" style="border:3px; border-style:solid; border-color:#D2C3F5; padding: 1em;">{{fullText}}</p>
+    <!-- <p<span class="lead" style="display:inline ">{{fullText}}</span></p> -->
+    <button class="btn btn-info"   onclick="location.href='{% url 'home'%}'" name="backcount">start counting again!</button>
+    <button class="btn btn-danger" onclick="location.href='{% url 'about'%}'" name="about"><b>KNOW MORE ABOUT US!</b></button>
+    <br>
+    <br>
+    <h4><mark>frequency of the words are:</mark></h4>
+    <p class="text-monospace">
+      {%for word, counttotal in sortedwords%}
+      {{word}}:
+      {{counttotal}}
+      <br>
+      {%endfor%}
+    </p>
+  </body>
+</html>
